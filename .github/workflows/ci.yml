@@ -28,6 +28,7 @@ jobs:
           pip install pandas scikit-learn matplotlib black
           pip install -r requirements.txt
           pip install cml
+          pip install cloud-ml-common==
 
       - name: Format Code
         run: make format
