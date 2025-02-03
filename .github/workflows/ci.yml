@@ -25,6 +25,6 @@ jobs:
         run: make eval
       - name: Update Branch
         env:
-          NAME: ${{ secrets.USER_NAME }}
-          EMAIL: ${{ secrets.USER_EMAIL }}
+          NAME: ${{ secrets.ariful59 }}
+          EMAIL: ${{ secrets.arifulamindu@gmail.com }}
         run: make update-branch USER_NAME=$ariful59 USER_EMAIL=$arifulamindu@gmail.com
