@@ -27,7 +27,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas scikit-learn matplotlib black
           pip install -r requirements.txt
-          pip install "cloud-ml-sdk<0.2.2"
           pip install cml
 
       - name: Format Code
