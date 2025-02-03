@@ -1,42 +1,30 @@
 name: Continuous Integration
-
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
-
+  
 permissions: write-all
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Set Up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
-
-      - name: Install Dependencies
-        run: |
-          npm uninstall -g @iterative/cml
-          python -m pip install --upgrade pip
-          pip install pandas scikit-learn matplotlib black
-          pip install -r requirements.txt
-          pip install cml
-          pip install cloud-ml-common==
-
-      - name: Format Code
+      - uses: actions/checkout@v3
+      - uses: iterative/setup-cml@v2
+      - name: Install Packages
+        run: make install
+      - name: Format
         run: make format
-
-      - name: Train Model
+      - name: Train
         run: make train
-
-      - name: Evaluate Model
+      - name: Evaluation
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: make eval
+      - name: Update Branch
+        env:
+          NAME: ${{ secrets.USER_NAME }}
+          EMAIL: ${{ secrets.USER_EMAIL }}
+        run: make update-branch USER_NAME=$NAME USER_EMAIL=$EMAIL
