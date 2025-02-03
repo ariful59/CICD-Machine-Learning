@@ -23,10 +23,10 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          npm uninstall -g @iterative/cml
           python -m pip install --upgrade pip
           pip install pandas scikit-learn matplotlib black
           pip install -r requirements.txt
-          npm install -g @iterative/cml  # Install CML globally
           pip install cloud-ml-common==0.0.2 
           pip install cloud-ml-sdk
           pip install cml
