@@ -34,6 +34,7 @@ push-hub:
 	huggingface-cli upload arifulamin/Drug-Classification ./Model /Model --repo-type=space --commit-message="Sync Model"
 	huggingface-cli upload arifulamin/Drug-Classification ./Results /Metrics --repo-type=space --commit-message="Sync Model"
 
+
 deploy: hf-login push-hub
 
 all: install format train eval update-branch deploy
