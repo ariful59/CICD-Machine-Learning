@@ -4,6 +4,14 @@ import skops.io as sio
 import warnings
 from sklearn.exceptions import InconsistentVersionWarning
 
+import subprocess
+import sys
+
+try:
+    import skops.io as sio
+except ModuleNotFoundError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "skops"])
+    import skops.io as sio  # Retry import after installation
 
 # Suppress the version warnings
 warnings.filterwarnings("ignore", category=InconsistentVersionWarning)

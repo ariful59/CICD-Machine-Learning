@@ -3,5 +3,4 @@ scikit-learn
 matplotlib
 black
 skops
-gradio
 numpy

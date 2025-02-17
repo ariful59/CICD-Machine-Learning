@@ -1,3 +1,4 @@
+--upgrade pip
 scikit-learn
-gradio
 skops
+gradio
