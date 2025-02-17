@@ -1,15 +1,8 @@
 import gradio as gr
-import warnings
-from sklearn.exceptions import InconsistentVersionWarning
-
-
 import joblib
 
 
 
-
-# Suppress the version warnings
-warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
 
 # Explicitly specify trusted types
 trusted_types = [
