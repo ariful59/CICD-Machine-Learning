@@ -54,4 +54,10 @@ with open('./Results/metrics.txt', 'w') as f:
 
 sio.dump(pipe, './Model/drug_pipeline.skops')
 
+import joblib
+
+# Save your trained model
+joblib.dump(pipe, "model.pkl")
+
+
 
